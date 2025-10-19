@@ -72,6 +72,7 @@ local Library = {
 		WeakText = {}
 	},
 	WelcomeText = nil,
+    ExecutorName = nil,
 	DisplayName = nil,
 	DragSpeed = 0.06,
 	LockDragging = false,
@@ -712,7 +713,7 @@ function Library:create(options)
 		AnchorPoint = Vector2.new(0, 0.5),
 		Position = UDim2.new(0, 10, 0.5),
 		Size = UDim2.fromOffset(80, 80)
-	}):round(100)
+	}):round(50)
 
 	local displayName; do
 		local h, s, v = Color3.toHSV(options.Theme.Tertiary)
@@ -783,6 +784,14 @@ function Library:create(options)
 		AnchorPoint = Vector2.new(1, 1),
 		Image = "http://www.roblox.com/asset/?id=8577523456"
 	}):tooltip("credits")
+
+    -- Will Identify the Executor Name and its Availability
+
+    local executorInfo = homePage:object("Frame", {
+		AnchorPoint = Vector2.new(0, .75),
+		Theme = {BackgroundColor3 = "Secondary"},
+		Size = UDim2.new(1, -20, 0, 45)
+	}):round(7)
 
 	local quickAccess = homePage:object("Frame", {
 		BackgroundTransparency = 1,
@@ -1022,7 +1031,7 @@ function Library:tab(options)
 		AnchorPoint = Vector2.new(0, 1),
 		Visible = false,
 		BackgroundTransparency = 1,
-		Position = UDim2.fromScale(0, 2),
+		Position = UDim2.fromScale(0, 1),
 		Size = UDim2.fromScale(1, 1),
 		ScrollBarThickness = 0,
 		ScrollingDirection = Enum.ScrollingDirection.Y
