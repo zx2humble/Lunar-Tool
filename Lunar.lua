@@ -76,8 +76,8 @@ local Library = {
 	DragSpeed = 0.06,
 	LockDragging = false,
 	ToggleKey = Enum.KeyCode.Home,
-	UrlLabel = nil,
-	Url = nil
+	Executor = nil,
+	ExecutorLabel = nil
 
 }
 Library.__index = Library
@@ -573,7 +573,7 @@ function Library:create(options)
 	})
 
 	Library.ExecutorLabel = executor
-	Library.Executor = executor.Exe
+	Library.Executor = options.Executor
 
 	local closeButton = core:object("ImageButton", {
 		BackgroundTransparency = 1,
