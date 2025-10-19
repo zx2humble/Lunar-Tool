@@ -794,13 +794,13 @@ function Library:create(options)
 
     local executorNameDisplay = profile:object("TextLabel", {
 		BackgroundTransparency = 1,
-		Position = UDim2.new(0, 105, 1, 40),
+		Position = UDim2.new(0, 105, 1, -5),
 		Size = UDim2.new(0, 400,0, 20),
 		AnchorPoint = Vector2.new(0, 1),
 		Theme = {TextColor3 = {"Tertiary", 10}},
 		TextScaled = true,
 		TextXAlignment = Enum.TextXAlignment.Left,
-		Text = "Executor not found or not supported."
+		Text = "Executor not supported."
 	})
 
 	local quickAccess = homePage:object("Frame", {
