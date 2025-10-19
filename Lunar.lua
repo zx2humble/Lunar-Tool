@@ -7,11 +7,6 @@ local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HTTPService = game:GetService("HttpService")
 
-local rank = {
- "Developer",
- "Regular user"
-}
-
 local Library = {
 	Themes = {
 		Legacy = {
@@ -611,7 +606,7 @@ function Library:create(options)
 		Position = UDim2.new(0, 5, 1, -6),
 		Size = UDim2.new(0.2, 0, 0, 10),
 		Font = Enum.Font.SourceSans,
-		Text = "Rank | ",
+		Text = "Status | Idle",
 		Theme = {TextColor3 = "Tertiary"},
 		TextSize = 14,
 		TextXAlignment = Enum.TextXAlignment.Left
@@ -739,7 +734,7 @@ function Library:create(options)
 			TextXAlignment = Enum.TextXAlignment.Left
 		})
 		Library.DisplayName = displayName
-        -- Executor telemetry will be added --
+        -- Executor telemetry will be added"
 	end
 
 	local profileName = profile:object("TextLabel", {
