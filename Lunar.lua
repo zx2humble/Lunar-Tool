@@ -730,7 +730,6 @@ function Library:create(options)
 			TextXAlignment = Enum.TextXAlignment.Left
 		})
 		Library.DisplayName = displayName
-        -- Executor telemetry will be added --
 	end
 
 	local profileName = profile:object("TextLabel", {
@@ -795,7 +794,7 @@ function Library:create(options)
 
     local executorNameDisplay = profile:object("TextLabel", {
 		BackgroundTransparency = 1,
-		Position = UDim2.new(0, 105, 1, -10),
+		Position = UDim2.new(0, 105, 1, -20),
 		Size = UDim2.new(0, 400,0, 20),
 		AnchorPoint = Vector2.new(0, 1),
 		Theme = {TextColor3 = {"Tertiary", 10}},
