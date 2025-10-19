@@ -1,5 +1,3 @@
-local exeChecker = loadstring(game:HttpGet"https://raw.githubusercontent.com/zx2humble/Lunar-Tool/refs/heads/main/Lunar%20SUNC%20Checker.lua")()
-
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -12,6 +10,44 @@ local rank = {
  "Developer",
  "Regular user"
 }
+
+-- Executor name telemetry --
+local isWorking = false
+
+local WorkingExecutors = {"Wave",}
+
+-- Safely runs the function identifyexecutor() so nothing crashes --
+-- if the boolean returns false the name will return null or nil which means that the name wont print --
+local bool, Name = pcall(identifyexecutor)
+if not bool then
+    Name = nil
+end
+
+for _, exec in ipairs(WorkingExecutors) do 
+    if Name == tostring(exec) then
+        isWorking = true
+    end
+end
+
+if isWorking then
+    print(Name .. " Executor Is Verified!")
+end
+
+local runSUNCTest = not isWorking
+
+-- Will run if the Executor name is not verified --
+if runSUNCTest == true then
+    getgenv().sUNCDebug = {
+        ["printcheckpoints"] = false,
+        ["delaybetweentests"] = 0,
+        ["printtesttimetaken"] = false,
+    }
+
+
+    pcall(function()
+        loadstring(game:HttpGet("https://script.sunc.su/"))()
+    end)
+end
 
 local Library = {
 	Themes = {
@@ -801,14 +837,8 @@ function Library:create(options)
 		Theme = {TextColor3 = {"Tertiary", 10}},
 		TextScaled = true,
 		TextXAlignment = Enum.TextXAlignment.Left,
-		Text = exeChecker.Name
+		Text = Name .. " Executor Is Verified!"
 	})
-
-	local setexeNameDisplay = true
-
-	if setexeNameDisplay then
-		executorNameDisplay.Text = exeChecker.Name .." Is Supported and Works Well."
-	end
 
 	local quickAccess = homePage:object("Frame", {
 		BackgroundTransparency = 1,
