@@ -7,6 +7,11 @@ local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HTTPService = game:GetService("HttpService")
 
+local rank = {
+ "Developer",
+ "Regular user"
+}
+
 local Library = {
 	Themes = {
 		Legacy = {
@@ -540,6 +545,36 @@ function Library:create(options)
 		Padding = UDim.new(0, 4)
 	})
 
+    	local executorBar = core:object("Frame", {
+		Size = UDim2.new(1, -10, 0, 25),
+		Position = UDim2.new(0, 5,0, 35),
+		Theme = {BackgroundColor3 = "Secondary"}
+	}):round(5)
+
+	local executeIcon = executorBar:object("ImageLabel", {
+		AnchorPoint = Vector2.new(0, .5),
+		Position = UDim2.new(0, 5,0.5, 0);
+		Theme = {ImageColor3 = "Tertiary"},
+		Size = UDim2.fromOffset(16, 16),
+		Image = "http://www.roblox.com/asset/?id=8497489946",
+		BackgroundTransparency = 1
+	})
+
+    	local executor = executorBar:object("TextLabel", {
+		AnchorPoint = Vector2.new(0, 0.5),
+		Position = UDim2.new(0, 26, 0.5, 0),
+		BackgroundTransparency = 1,
+		Size = UDim2.new(1, -30, .6, 0),
+		Text = options.Executor .. "Executor Not Found!",
+		Theme = {TextColor3 = "WeakText"},
+		TextSize = 14,
+		TextScaled = false,
+		TextXAlignment = Enum.TextXAlignment.Left
+	})
+
+	Library.ExecutorLabel = executor
+	Library.Executor = executor.Exe
+
 	local closeButton = core:object("ImageButton", {
 		BackgroundTransparency = 1,
 		Size = UDim2.fromOffset(14, 14),
@@ -606,7 +641,7 @@ function Library:create(options)
 		Position = UDim2.new(0, 5, 1, -6),
 		Size = UDim2.new(0.2, 0, 0, 10),
 		Font = Enum.Font.SourceSans,
-		Text = "Status | Idle",
+		Text = "Rank | " ..rank[1],
 		Theme = {TextColor3 = "Tertiary"},
 		TextSize = 14,
 		TextXAlignment = Enum.TextXAlignment.Left
@@ -734,7 +769,7 @@ function Library:create(options)
 			TextXAlignment = Enum.TextXAlignment.Left
 		})
 		Library.DisplayName = displayName
-        -- Executor telemetry will be added"
+        -- Executor telemetry will be added --
 	end
 
 	local profileName = profile:object("TextLabel", {
@@ -1108,7 +1143,6 @@ function Library:tab(options)
 			selectedTab = tabButton
 			tab.Visible = true
 			tabButton.BackgroundTransparency = 0
-			Library.UrlLabel.Text = Library.Url .. "/" .. options.Name:lower()
 		end)
 
 		quickAccessButton.MouseEnter:connect(function()
