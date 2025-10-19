@@ -859,9 +859,8 @@ function Library:create(options)
         end,
     }
 
-UISmoothingSlider:Hide() -- hide it initially
+    UISmoothingSlider:Hide()
 
--- then create toggle
     settingsTab:toggle{
         Name = "Allow Drag Smoothing",
         Description = "Toggles the UI drag animation.",
