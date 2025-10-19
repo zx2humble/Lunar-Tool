@@ -1,2 +1,2 @@
-# Sentinel-Lib
-The new age of a Roblox GUI library.
+# Tool
+The new age of a Roblox Cheat.
