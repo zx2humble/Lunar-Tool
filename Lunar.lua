@@ -845,27 +845,11 @@ function Library:create(options)
 		end,
 	}
 
-    local allowUISmoothing = false
-
-    settingsTab:toggle{
-        Name = "Allow Drag Smoothing",
-        Description = "Toggles the UI drag animation.",
-        StartingState = true,
-        Callback = function(state)
-            allowUISmoothing = state
-            if state then
-                Library.DragSpeed = 20
-            else
-                Library.DragSpeed = (20 - value)/100
-            end
-        end,
-    }
-
-        settingsTab:slider{
+    settingsTab:slider{
         Name = "UI Drag Smoothing",
         Description = "How smooth the dragging looks.",
-        Max = 15,
-        Default = 14,
+        Max = 20,
+        Default = 20,
         Callback = function(value)
             Library.DragSpeed = (20 - value)/100
         end,
@@ -1038,7 +1022,7 @@ function Library:tab(options)
 		AnchorPoint = Vector2.new(0, 1),
 		Visible = false,
 		BackgroundTransparency = 1,
-		Position = UDim2.fromScale(0, 1),
+		Position = UDim2.fromScale(0, 2),
 		Size = UDim2.fromScale(1, 1),
 		ScrollBarThickness = 0,
 		ScrollingDirection = Enum.ScrollingDirection.Y
