@@ -893,7 +893,7 @@ end
 function Library:notification(options)
 	options = self:set_defaults({
 		Title = "Notification",
-		Text = "Your character has been reset.",
+		Text = "This notification is empty.",
 		Duration = 3,
 		Callback = function() end
 	}, options)
