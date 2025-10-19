@@ -76,9 +76,6 @@ local Library = {
 	DragSpeed = 0.06,
 	LockDragging = false,
 	ToggleKey = Enum.KeyCode.Home,
-	Executor = nil,
-	ExecutorLabel = nil
-
 }
 Library.__index = Library
 
@@ -545,37 +542,6 @@ function Library:create(options)
 		Padding = UDim.new(0, 4)
 	})
 
-    local executorBar = core:object("Frame", {
-        Size = UDim2.new(1, -10, 0, 25),
-        Position = UDim2.new(0, 5,0, 35),
-        Theme = {BackgroundColor3 = "Secondary"}
-    }):round(5)
-
-
-	local executeIcon = executorBar:object("ImageLabel", {
-		AnchorPoint = Vector2.new(0, .5),
-		Position = UDim2.new(0, 5,0.5, 0);
-		Theme = {ImageColor3 = "Tertiary"},
-		Size = UDim2.fromOffset(16, 16),
-		Image = "http://www.roblox.com/asset/?id=8497489946",
-		BackgroundTransparency = 1
-	})
-
-    	local executor = executorBar:object("TextLabel", {
-		AnchorPoint = Vector2.new(0, 0.5),
-		Position = UDim2.new(0, 26, 0.5, 0),
-		BackgroundTransparency = 1,
-		Size = UDim2.new(1, -30, .6, 0),
-		Text = options.Executor .. "Executor Not Found!",
-		Theme = {TextColor3 = "WeakText"},
-		TextSize = 14,
-		TextScaled = false,
-		TextXAlignment = Enum.TextXAlignment.Left
-	})
-
-	Library.ExecutorLabel = executor
-	Library.Executor = options.Executor
-
 	local closeButton = core:object("ImageButton", {
 		BackgroundTransparency = 1,
 		Size = UDim2.fromOffset(14, 14),
@@ -725,7 +691,6 @@ function Library:create(options)
 			selectedTab = homeButton
 			homePage.Visible = true
 			homeButton.BackgroundTransparency = 0
-			Library.ExecutorLabel.Text = Library.Executor .. "exe"
 		end)
 	end
 
@@ -1170,7 +1135,6 @@ function Library:tab(options)
 				selectedTab = tabButton
 				tab.Visible = true
 				tabButton.BackgroundTransparency = 0
-				Library.ExecutorLabel.Text = Library.Executor .. "/" .. options.Name:lower()
 			end
 		end)
 	end
