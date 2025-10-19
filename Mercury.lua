@@ -596,36 +596,6 @@ function Library:create(options)
 		closeUI()
 	end)
 
-	local urlBar = core:object("Frame", {
-		Size = UDim2.new(1, -10, 0, 25),
-		Position = UDim2.new(0, 5,0, 35),
-		Theme = {BackgroundColor3 = "Secondary"}
-	}):round(5)
-
-	local searchIcon = urlBar:object("ImageLabel", {
-		AnchorPoint = Vector2.new(0, .5),
-		Position = UDim2.new(0, 5,0.5, 0);
-		Theme = {ImageColor3 = "Tertiary"},
-		Size = UDim2.fromOffset(16, 16),
-		Image = "http://www.roblox.com/asset/?id=8497489946",
-		BackgroundTransparency = 1
-	})
-
-	local link = urlBar:object("TextLabel", {
-		AnchorPoint = Vector2.new(0, 0.5),
-		Position = UDim2.new(0, 26, 0.5, 0),
-		BackgroundTransparency = 1,
-		Size = UDim2.new(1, -30, .6, 0),
-		Text = options.Link .. "/home",
-		Theme = {TextColor3 = "WeakText"},
-		TextSize = 14,
-		TextScaled = false,
-		TextXAlignment = Enum.TextXAlignment.Left
-	})
-
-	Library.UrlLabel = link
-	Library.Url = options.Link
-
 	local shadowHolder = core:object("Frame", {
 		BackgroundTransparency = 1,
 		Size = UDim2.fromScale(1, 1),
