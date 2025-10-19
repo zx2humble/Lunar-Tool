@@ -793,6 +793,17 @@ function Library:create(options)
 		Size = UDim2.new(1, -20, 0, 45)
 	}):round(7)
 
+    local executorNameDisplay = profile:object("TextLabel", {
+		BackgroundTransparency = 1,
+		Position = UDim2.new(0, 105, 1, -10),
+		Size = UDim2.new(0, 400,0, 20),
+		AnchorPoint = Vector2.new(0, 1),
+		Theme = {TextColor3 = {"Tertiary", 10}},
+		TextScaled = true,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		Text = "Executor not found or not supported."
+	})
+
 	local quickAccess = homePage:object("Frame", {
 		BackgroundTransparency = 1,
 		Size = UDim2.new(1, -20, 0, 180)
