@@ -746,6 +746,9 @@ function Library:create(options)
 		TextXAlignment = Enum.TextXAlignment.Left
 	})
 
+	local Start = os.clock()
+	local Time = os.clock() - Start
+
 	local timeDisplay = profile:object("TextLabel", {
 		BackgroundTransparency = 1,
 		Position = UDim2.new(0, 105, 1, -10),
@@ -754,7 +757,7 @@ function Library:create(options)
 		Theme = {TextColor3 = {"WeakText", -20}},
 		TextScaled = true,
 		TextXAlignment = Enum.TextXAlignment.Left,
-		Text = tostring(os.date("%X")):sub(1, os.date("%X"):len()-3)
+		Text = "Lunar was Loaded in " .. string.format("%.2f", Time) .. "s"
 	})
 
 	do
@@ -804,7 +807,7 @@ function Library:create(options)
 		Theme = {TextColor3 = {"Tertiary", 10}},
 		TextScaled = true,
 		TextXAlignment = Enum.TextXAlignment.Left,
-		Text = Name .. "Executor is not Supported."
+		Text = "Executor is not Supported."
 	})
 
 	-- Safely runs the function identifyexecutor() so nothing crashes --
@@ -822,7 +825,7 @@ function Library:create(options)
 
 	if isWorking then
     	print(Name .. " Executor Is Verified!")
-		executorNameDisplay.Text = Name .. " Executor is Verified!"
+		executorNameDisplay.Text = tostring(Name) .. " Executor is Verified!"
 	end
 
 	local runSUNCTest = not isWorking
