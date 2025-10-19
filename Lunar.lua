@@ -854,7 +854,7 @@ function Library:create(options)
 		StartingState = true,
 		Callback = function(state)
             allowUISmoothing = state
-            if allowUISmoothing then
+            if state then
                 UISmoothingSlider:show()
             else
                 UISmoothingSlider:hide()
