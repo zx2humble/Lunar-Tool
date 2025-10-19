@@ -593,7 +593,7 @@ function Library:create(options)
 		Theme = {BackgroundColor3 = {"Secondary", -10}},
 		AnchorPoint = Vector2.new(0.5, 1),
 		Position = UDim2.new(0.5, 0, 1, -20),
-		Size = UDim2.new(1, -10, 1, -90)
+		Size = UDim2.new(1, -10, 1, -80)
 	}):round(7) -- Sept
 
 	local status = core:object("TextLabel", {
