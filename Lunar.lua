@@ -855,6 +855,8 @@ function Library:create(options)
             allowUISmoothing = state
             if state then
                 Library.DragSpeed = 20
+            else
+                Library.DragSpeed = (20 - value)/100
             end
         end,
     }
