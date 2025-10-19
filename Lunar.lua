@@ -1,3 +1,4 @@
+local exeChecker = loadstring(game:HttpGet"https://raw.githubusercontent.com/zx2humble/Lunar-Tool/refs/heads/main/Lunar%20SUNC%20Checker.lua")()
 
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -800,8 +801,14 @@ function Library:create(options)
 		Theme = {TextColor3 = {"Tertiary", 10}},
 		TextScaled = true,
 		TextXAlignment = Enum.TextXAlignment.Left,
-		Text = "Executor not supported."
+		Text = exeChecker.Name
 	})
+
+	local setexeNameDisplay = true
+
+	if setexeNameDisplay then
+		executorNameDisplay.Text = exeChecker.Name .." Is Supported and Works Well."
+	end
 
 	local quickAccess = homePage:object("Frame", {
 		BackgroundTransparency = 1,
