@@ -844,16 +844,28 @@ function Library:create(options)
 			Library.LockDragging = state
 		end,
 	}
+    
+    local allowUIDRagging = false
 
-	settingsTab:slider{
-		Name = "UI Drag Speed",
-		Description = "How smooth the dragging looks.",
-		Max = 20,
-		Default = 20,
-		Callback = function(value)
-			Library.DragSpeed = (20 - value)/100
+    settingsTab:toggle{
+        Name = "Allow Drag Animation",
+		Description = "Toggles the UI drag animation.",
+		StartingState = true,
+		Callback = function(state)
+			allowUIDRagging = state
+            if allowUIDRagging then
+                settingsTab:slider{
+		        Name = "UI Drag Speed",
+		         Description = "How smooth the dragging looks.",
+		        Max = 15,
+		        Default = 14,
+		        Callback = function(value)
+			    Library.DragSpeed = (20 - value)/100
+		    end,
+	    }
+            end
 		end,
-	}
+    }
 
 	local creditsTab = Library.tab(mt, {
 		Name = "Credits",
