@@ -760,19 +760,6 @@ function Library:create(options)
 		Text = "Lunar was Loaded in " .. string.format("%.2f", Time) .. "s"
 	})
 
-	do
-		local desiredInterval = 1
-		local counter = 0
-		RunService.Heartbeat:Connect(function(step)
-			counter += step  
-			if counter >= desiredInterval then
-				counter -= desiredInterval
-				local date = tostring(os.date("%X"))
-				timeDisplay.Text = date:sub(1, date:len()-3)
-			end
-		end)
-	end
-
 	local settingsTabIcon = profile:object("ImageButton", {
 		BackgroundTransparency = 1,
 		Theme = {ImageColor3 = "WeakText"},
