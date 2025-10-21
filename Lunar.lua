@@ -439,6 +439,13 @@ function Library:create(options)
 		ZIndexBehavior = Enum.ZIndexBehavior.Global
 	})
 
+	local infoGui = gui:object("Frame", {
+		AnchorPoint = Vector2.new(1),
+		BackgroundTransparency = 1,
+		Position = Udim2.new(1, -30, 1, -20),
+		Size = Udim.new(0, 250, 1, -60)
+	})
+
 	local notificationHolder = gui:object("Frame", {
 		AnchorPoint = Vector2.new(1, 1),
 		BackgroundTransparency = 1,
